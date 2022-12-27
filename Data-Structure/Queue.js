@@ -1,3 +1,5 @@
+// 출처: https://opensea.tistory.com/18
+
 class Node {
   constructor(value) {
     this.value = value;
