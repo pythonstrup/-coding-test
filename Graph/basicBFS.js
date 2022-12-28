@@ -40,9 +40,11 @@ const dfs = (graph, start, visited) => {
   const queue = new Queue();
   queue.enqueue(start);
   visited[start] = true;
+
   while (queue.size) {
     const v = queue.dequeue();
     process.stdout.write(v + ' ');
+
     for (const value of graph[v]) {
       if (visited[value] === false) {
         queue.enqueue(value);
