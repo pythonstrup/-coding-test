@@ -3,11 +3,6 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let [count, inputs] = fs.readFileSync(filePath).toString().trim().split('\n');
 inputs = inputs.split(' ').map(Number);
 
-/**
- *
- * @param {number} count
- * @param {number[]} inputs
- */
 function solution(count, inputs) {
   inputs = [0, ...inputs];
   const cache = new Array(count + 1).fill(0);

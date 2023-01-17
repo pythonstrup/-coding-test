@@ -1,3 +1,25 @@
+let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const t = input.shift();
+input = input.map(Number);
+
+let result = '';
+for (let i = 0; i < t; i++) {
+  const n = input[i];
+  const dp = Array.from({length: n + 1}, () => 0);
+  dp[1] = 1;
+  dp[2] = 2;
+  dp[3] = 4;
+  for (let j = 4; j <= n; j++) {
+    dp[j] = dp[j - 1] + dp[j - 2] + dp[j - 3];
+  }
+  result += `${dp[n]}\n`;
+}
+
+console.log(result);
+
+//
+//
+//
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
 
@@ -24,28 +46,6 @@ function solution(n) {
 
   return result;
 }
-
-//
-//
-//
-let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-const t = input.shift();
-input = input.map(Number);
-
-let result = '';
-for (let i = 0; i < t; i++) {
-  const n = input[i];
-  const dp = Array.from({length: n + 1}, () => 0);
-  dp[1] = 1;
-  dp[2] = 2;
-  dp[3] = 4;
-  for (let j = 4; j <= n; j++) {
-    dp[j] = dp[j - 1] + dp[j - 2] + dp[j - 3];
-  }
-  result += `${dp[n]}\n`;
-}
-
-console.log(result);
 
 //
 //
