@@ -1,21 +1,22 @@
-package com.code.no;
+package commit;
 
 public class 평행 {
-  public int solution(int[][] dots) {
-    int answer = 0;
-    for (int i = 1; i < 4; i++) {
-      int x1 = dots[0][0] - dots[i][0];
-      int y1 = dots[0][1] - dots[i][1];
-      int x2 = dots[3-i][0] - dots[(5-i)%4][0];
-      int y2 = dots[3-i][1] - dots[(5-i)%4][1];
+  class Solution {
+    public int solution(int[][] dots) {
+      int answer = 0;
+      for (int i = 1; i < 4; i++) {
+        int x1 = dots[3][0] - dots[i][0];
+        int y1 = dots[3][1] - dots[i][1];
+        int x2 = dots[(i+1)%3][0] - dots[(i+2)%3][0];
+        int y2 = dots[(i+1)%3][1] - dots[(i+2)%3][1];
 
-
-      if (x2*y1 == x1*y2 && Math.abs(x1) == Math.abs(x2) && Math.abs(y1) == Math.abs(y2)) {
-        answer = 1;
-        break;
+        if ((double) x1/y1 == (double) x2/y2) {
+          answer = 1;
+          break;
+        }
       }
-    }
 
-    return answer;
+      return answer;
+    }
   }
 }
